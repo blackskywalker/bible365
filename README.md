@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# bible365
 
-## Getting Started
+어디서든 펼치는 성경 · Read the Bible anywhere, anytime.
 
-First, run the development server:
+24시간 365일 누구나 가볍게 접근할 수 있는 다국어 온라인 성경. 동남아 전도 사역을 위해 만들어졌습니다.
+
+## 언어 / Languages
+
+| Code | Translation | License |
+|------|-------------|---------|
+| `ko` | 개역한글판 (1961) | Public Domain |
+| `en` | American Standard Version (1901) | Public Domain |
+| `vi` | Kinh Thánh Tiếng Việt 1934 | Public Domain |
+| `th` | Thai KJV | Free distribution |
+
+## 라우트
+
+- `/` → `/ko` 리다이렉트
+- `/[lang]` — 책 목록 + 오늘의 말씀
+- `/[lang]/[book]/[chapter]` — 본문 (예: `/ko/jhn/3`)
+- `/[lang]/[book]/[chapter]#v[verse]` — 구절 영구 링크 (예: `/ko/jhn/3#v16`)
+
+책 코드는 OSIS 3자(`gen`, `jhn`, `rev` …).
+
+## 데이터
+
+원본은 [scrollmapper/bible_databases](https://github.com/scrollmapper/bible_databases)에서 받습니다. `data/raw/`는 git 제외, `data/processed/{lang}/{book}/{chapter}.json` (4 × 1189 = 4756개)만 커밋합니다.
+
+원본 재생성:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run fetch:bibles   # raw JSON 다운로드
+npm run normalize       # processed JSON 생성
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 개발
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev   # http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 배포
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Vercel에 import 후 그대로 배포. 추가 환경 변수 필요 없음.

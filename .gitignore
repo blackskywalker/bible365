@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# bible365: raw scrollmapper JSON (regenerable via npm run normalize)
+/data/raw/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

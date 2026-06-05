@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "fetch:bibles": "bash data/scripts/fetch.sh",
+    "normalize": "tsx data/scripts/normalize.ts"
   },
   "dependencies": {
     "next": "16.2.6",
