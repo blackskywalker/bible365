@@ -13,6 +13,10 @@ export function Footer({ lang }: { lang: Lang }) {
             className="underline"
           >
             data source
+          </a>{" "}
+          ·{" "}
+          <a href="/support" className="underline hover:text-amber-700 dark:hover:text-amber-400">
+            후원하기
           </a>
         </p>
       </div>
