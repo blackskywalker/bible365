@@ -37,6 +37,13 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
     newTestament: "พันธสัญญาใหม่ · 27 เล่ม",
     featured: "ข้อพระคัมภีร์ประจำวัน",
   },
+  zh: {
+    tagline: "隨時隨地，展開聖經",
+    subline: "全天候24小時，輕鬆閱讀神的話語。",
+    oldTestament: "舊約 · 39卷",
+    newTestament: "新約 · 27卷",
+    featured: "今日金句",
+  },
 };
 
 export const FEATURED_VERSES: { book: string; chapter: number; verse: number }[] = [
