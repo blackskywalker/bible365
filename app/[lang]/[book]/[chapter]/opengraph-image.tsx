@@ -30,6 +30,7 @@ const LANG_LABEL: Record<Lang, string> = {
   en: "English",
   vi: "Vietnamese",
   th: "Thai",
+  zh: "Chinese",
 };
 
 export default async function Image({
