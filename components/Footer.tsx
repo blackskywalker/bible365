@@ -20,6 +20,10 @@ export function Footer({ lang }: { lang: Lang }) {
           >
             data source
           </a>
+          {" · "}
+          <a href="/privacy" className="underline">
+            개인정보처리방침
+          </a>
         </p>
       </div>
     </footer>
