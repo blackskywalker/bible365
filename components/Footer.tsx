@@ -21,6 +21,10 @@ export function Footer({ lang }: { lang: Lang }) {
             data source
           </a>
           {" · "}
+          <a href="/world" className="underline">
+            세계 전도 지도
+          </a>
+          {" · "}
           <a href="/privacy" className="underline">
             개인정보처리방침
           </a>
