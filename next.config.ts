@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/ko",
+        permanent: false,
+      },
+    ];
+  },
   outputFileTracingIncludes: {
     "/[lang]/[book]/[chapter]": ["./data/processed/**/*.json"],
     "/[lang]": ["./data/processed/**/*.json"],
