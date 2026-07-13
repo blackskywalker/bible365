@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { LastReadTracker } from "@/components/LastReadTracker";
 import { VerseCopyButton } from "@/components/VerseCopyButton";
 import { loadChapter } from "@/lib/bible";
 import { BOOK_BY_CODE, BOOKS, LANGUAGES, type Lang } from "@/lib/books";
@@ -81,6 +82,7 @@ export default async function ChapterPage({
           </div>
         </nav>
 
+        <LastReadTracker lang={l} book={book} chapter={chNum} />
         <ChapterPicker lang={l} book={book} current={chNum} total={meta.chapters} />
 
         <article className="reader mt-6 space-y-1">

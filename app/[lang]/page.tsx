@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ContinueReading } from "@/components/ContinueReading";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { loadChapter } from "@/lib/bible";
@@ -40,6 +41,8 @@ export default async function LangHome({ params }: PageProps<"/[lang]">) {
             {copy.subline}
           </p>
         </section>
+
+        <ContinueReading lang={l} />
 
         {verse && (
           <section className="mb-12">
