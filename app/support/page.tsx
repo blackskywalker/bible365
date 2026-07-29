@@ -73,10 +73,10 @@ export default function SupportPage() {
           <span className="text-xs">
             문의:{" "}
             <a
-              href="mailto:ssventertainment@gmail.com"
+              href="mailto:blackskywk09@gmail.com"
               className="underline hover:text-amber-700 dark:hover:text-amber-400"
             >
-              ssventertainment@gmail.com
+              blackskywk09@gmail.com
             </a>
           </span>
         </p>

@@ -90,8 +90,8 @@ export default function PrivacyPage() {
           <h2 className="text-base font-semibold text-stone-900 dark:text-stone-100">6. 문의</h2>
           <p>
             개인정보 관련 문의:{" "}
-            <a href="mailto:ssventertainment@gmail.com" className="underline text-amber-700 dark:text-amber-400">
-              ssventertainment@gmail.com
+            <a href="mailto:blackskywk09@gmail.com" className="underline text-amber-700 dark:text-amber-400">
+              blackskywk09@gmail.com
             </a>
           </p>
         </section>
