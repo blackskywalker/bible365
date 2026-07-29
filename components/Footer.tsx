@@ -9,18 +9,11 @@ export function Footer({ lang }: { lang: Lang }) {
           href="/support"
           className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg border border-amber-700/40 dark:border-amber-400/40 text-amber-700 dark:text-amber-400 font-medium text-sm hover:bg-amber-50 dark:hover:bg-amber-900/20 transition-colors"
         >
-          ♡ 아시아 전도 사역 후원하기
+          ♡ 아시아 말씀 사역 후원하기
         </a>
         <p>{t.attribution}</p>
         <p className="text-stone-400 dark:text-stone-500">
           bible365 · 어디서든 펼치는 성경 · 24/7 ·{" "}
-          <a
-            href="https://github.com/scrollmapper/bible_databases"
-            className="underline"
-          >
-            data source
-          </a>
-          {" · "}
           <a href="/world" className="underline">
             세계 전도 지도
           </a>
