@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "bible365 — 어디서든 펼치는 성경",
   description:
     "24시간 365일 어디서든 가볍게 펼치는 다국어 온라인 성경. Read the Bible anywhere, anytime, in your language.",
+  verification: {
+    google: "hwtyn_ST-aT6hKh23teQfrRcio0fOfWgBDzSDp_451Y",
+  },
 };
 
 export default function RootLayout({
