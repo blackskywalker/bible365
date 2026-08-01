@@ -11,6 +11,7 @@ const SEARCH_PLACEHOLDER: Record<Lang, string> = {
   vi: "Tìm sách...",
   th: "ค้นหาหนังสือ...",
   zh: "搜尋書卷...",
+  tl: "Maghanap ng aklat...",
 };
 
 export function BookSearch({ lang }: { lang: Lang }) {
