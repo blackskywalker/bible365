@@ -51,6 +51,13 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
     newTestament: "Bagong Tipan · 27 aklat",
     featured: "Talata ng araw",
   },
+  es: {
+    tagline: "La Biblia, en cualquier lugar, a cualquier hora",
+    subline: "Abre la Palabra de Dios cuando quieras, 24/7.",
+    oldTestament: "Antiguo Testamento · 39 libros",
+    newTestament: "Nuevo Testamento · 27 libros",
+    featured: "Versículo del día",
+  },
 };
 
 export const FEATURED_VERSES: { book: string; chapter: number; verse: number }[] = [

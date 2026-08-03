@@ -31,6 +31,7 @@ const SOURCES: Record<Lang, string> = {
   th: "ThaiKJV.json",
   zh: "ChiUn.json",
   tl: "TagAngBiblia.json",
+  es: "SpaRV.json",
 };
 
 async function processLang(lang: Lang, file: string) {

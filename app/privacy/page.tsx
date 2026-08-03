@@ -68,6 +68,8 @@ export default function PrivacyPage() {
             <li>베트남어: Kinh Thánh Tiếng Việt 1934 — Public Domain</li>
             <li>태국어: Thai KJV — Free distribution (CrossWire)</li>
             <li>중국어: 和合本 (Chinese Union Version, 1919) — Public Domain</li>
+            <li>타갈로그어: Ang Biblia (Philippine Bible Society, 1905) — Public Domain</li>
+            <li>스페인어: Reina-Valera 1909 — Public Domain</li>
           </ul>
           <p>
             원본 데이터 출처:{" "}

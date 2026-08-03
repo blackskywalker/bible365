@@ -10,4 +10,5 @@ curl -sL -o Viet.json   "https://raw.githubusercontent.com/scrollmapper/bible_da
 curl -sL -o ThaiKJV.json "https://raw.githubusercontent.com/scrollmapper/bible_databases/master/formats/json/ThaiKJV.json"
 curl -sL -o ChiUn.json   "https://raw.githubusercontent.com/scrollmapper/bible_databases/master/formats/json/ChiUn.json"
 curl -sL -o TagAngBiblia.json "https://raw.githubusercontent.com/scrollmapper/bible_databases/master/formats/json/TagAngBiblia.json"
+curl -sL -o SpaRV.json "https://raw.githubusercontent.com/scrollmapper/bible_databases/master/formats/json/SpaRV.json"
 ls -lh
