@@ -7,13 +7,22 @@ import { VerseCopyButton } from "@/components/VerseCopyButton";
 import { loadChapter } from "@/lib/bible";
 import { BOOK_BY_CODE, BOOKS, LANGUAGES, type Lang } from "@/lib/books";
 
-export const dynamicParams = false;
+// 나머지 챕터는 첫 방문 시 생성 후 캐시 (ISR)
+export const dynamicParams = true;
+export const revalidate = 86400; // 24시간 캐시
+
+// 핵심 챕터만 빌드 시 pre-render — 나머지는 on-demand
+const PRIORITY_BOOKS: Record<string, number> = {
+  jhn: 21, psa: 10, gen: 3, mat: 5, rom: 8,
+  pro: 3, isa: 1, rev: 1, luk: 3, act: 2,
+};
 
 export async function generateStaticParams() {
   const params: { lang: string; book: string; chapter: string }[] = [];
   for (const lang of LANGUAGES) {
     for (const book of BOOKS) {
-      for (let c = 1; c <= book.chapters; c++) {
+      const limit = PRIORITY_BOOKS[book.code] ?? 1;
+      for (let c = 1; c <= Math.min(limit, book.chapters); c++) {
         params.push({ lang, book: book.code, chapter: String(c) });
       }
     }

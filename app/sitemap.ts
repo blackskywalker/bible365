@@ -17,15 +17,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];
 
+  // 사이트맵은 ko/en 핵심 챕터만 — 구글봇 크롤링 부하 최소화
+  const SITEMAP_BOOKS: Record<string, number> = {
+    jhn: 21, psa: 150, gen: 50, mat: 28, rom: 16,
+    pro: 31, isa: 66, rev: 22, luk: 24, act: 28,
+    mrk: 16, eph: 6, php: 4, col: 4, heb: 13,
+  };
+
   const chapters: MetadataRoute.Sitemap = [];
-  for (const lang of LANGUAGES) {
+  for (const lang of ["ko", "en"] as const) {
     for (const book of BOOKS) {
-      for (let c = 1; c <= book.chapters; c++) {
+      const limit = SITEMAP_BOOKS[book.code];
+      if (!limit) continue;
+      for (let c = 1; c <= limit; c++) {
         chapters.push({
           url: `${BASE_URL}/${lang}/${book.code}/${c}`,
           lastModified: now,
           changeFrequency: "yearly",
-          priority: lang === "ko" || lang === "en" ? 0.8 : 0.6,
+          priority: 0.7,
         });
       }
     }
