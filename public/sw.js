@@ -1,4 +1,4 @@
-const CACHE_NAME = "bible365-v1";
+const CACHE_NAME = "bible365-v2";
 
 // 캐시할 핵심 경로
 const CORE_URLS = [
@@ -7,6 +7,8 @@ const CORE_URLS = [
   "/vi",
   "/th",
   "/zh",
+  "/tl",
+  "/es",
   "/support",
 ];
 

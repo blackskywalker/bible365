@@ -30,7 +30,7 @@ export default function WorldPage() {
     <div className="min-h-full flex flex-col bg-stone-50 text-stone-900 dark:bg-neutral-950 dark:text-stone-100">
       <header className="sticky top-0 z-10 bg-stone-50/90 dark:bg-neutral-950/90 backdrop-blur border-b border-stone-200 dark:border-neutral-800">
         <div className="max-w-5xl mx-auto px-4 py-2 flex items-center gap-3">
-          <Link href="/ko" className="font-semibold tracking-tight text-stone-700 dark:text-stone-200">
+          <Link href="/en" className="font-semibold tracking-tight text-stone-700 dark:text-stone-200">
             bible<span className="text-amber-700 dark:text-amber-400">365</span>
           </Link>
           <span className="text-stone-400">/</span>
@@ -99,8 +99,8 @@ export default function WorldPage() {
         </div>
 
         <div className="mt-6 text-center space-x-4">
-          <Link href="/ko" className="text-sm text-amber-700 dark:text-amber-400 underline">
-            성경 읽기
+          <Link href="/en" className="text-sm text-amber-700 dark:text-amber-400 underline">
+            Read the Bible
           </Link>
           <Link href="/support" className="text-sm text-amber-700 dark:text-amber-400 underline">
             전도 사역 후원
