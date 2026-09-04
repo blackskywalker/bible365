@@ -18,7 +18,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ko" className="h-full antialiased" suppressHydrationWarning>
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

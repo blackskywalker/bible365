@@ -7,6 +7,11 @@ import { VerseCopyButton } from "@/components/VerseCopyButton";
 import { loadChapter } from "@/lib/bible";
 import { BOOK_BY_CODE, BOOKS, LANGUAGES, type Lang } from "@/lib/books";
 
+const BACK_LABEL: Record<Lang, string> = {
+  ko: "← 목록", en: "← List", vi: "← Danh sách",
+  th: "← รายการ", zh: "← 列表", tl: "← Listahan", es: "← Lista",
+};
+
 // 나머지 챕터는 첫 방문 시 생성 후 캐시 (ISR)
 export const dynamicParams = true;
 export const revalidate = 86400; // 24시간 캐시
@@ -72,7 +77,7 @@ export default async function ChapterPage({
             href={`/${l}`}
             className="text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100"
           >
-            ← 목록
+            {BACK_LABEL[l]}
           </Link>
           <h1 className="font-semibold text-lg tracking-tight">
             {name} <span className="text-amber-700 dark:text-amber-400">{chNum}</span>
