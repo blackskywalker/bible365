@@ -1,12 +1,34 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BookSearch } from "@/components/BookSearch";
 import { ContinueReading } from "@/components/ContinueReading";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { InstallBanner } from "@/components/InstallBanner";
 import { loadChapter } from "@/lib/bible";
-import { BOOKS, LANGUAGES, type Lang } from "@/lib/books";
+import { BOOKS, LANGUAGE_LABELS, LANGUAGES, type Lang } from "@/lib/books";
 import { FEATURED_VERSES, HOME_COPY } from "@/lib/copy";
+
+export async function generateMetadata({ params }: PageProps<"/[lang]">): Promise<Metadata> {
+  const { lang } = await params;
+  const l = lang as Lang;
+  if (!LANGUAGES.includes(l)) return {};
+  const copy = HOME_COPY[l];
+  const label = LANGUAGE_LABELS[l].english;
+  return {
+    title: `bible365 — ${copy.tagline}`,
+    description: `${copy.subline} Free Bible in ${label} and 6 other languages.`,
+    openGraph: {
+      title: `bible365 — ${copy.tagline}`,
+      description: copy.subline,
+      locale: l,
+    },
+    alternates: {
+      languages: Object.fromEntries(LANGUAGES.map((lng) => [lng, `/${lng}`])),
+    },
+  };
+}
 
 function pickDaily<T>(items: T[]): T {
   const today = new Date();
@@ -70,6 +92,7 @@ export default async function LangHome({ params }: PageProps<"/[lang]">) {
         <BookGrid title={copy.newTestament} lang={l} books={nt} highlight />
       </main>
       <Footer lang={l} />
+      <InstallBanner lang={l} />
     </>
   );
 }

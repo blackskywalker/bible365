@@ -47,8 +47,13 @@ export async function generateMetadata({
   return {
     title,
     description,
-    openGraph: { title, description, type: "article" },
+    openGraph: { title, description, type: "article", locale: lang },
     twitter: { card: "summary_large_image", title, description },
+    alternates: {
+      languages: Object.fromEntries(
+        LANGUAGES.map((l) => [l, `/${l}/${book}/${chapter}`])
+      ),
+    },
   };
 }
 

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { BOOKS, LANGUAGES } from "@/lib/books";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bible365-khaki.vercel.app";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bible365.art";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
