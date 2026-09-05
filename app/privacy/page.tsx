@@ -2,8 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "개인정보처리방침 · bible365",
-  description: "bible365 개인정보처리방침",
+  title: "Privacy Policy · bible365",
+  description: "bible365 Privacy Policy — 개인정보처리방침",
 };
 
 export default function PrivacyPage() {
@@ -11,7 +11,7 @@ export default function PrivacyPage() {
     <div className="min-h-full flex flex-col bg-stone-50 text-stone-900 dark:bg-neutral-950 dark:text-stone-100">
       <header className="sticky top-0 z-10 bg-stone-50/90 dark:bg-neutral-950/90 backdrop-blur border-b border-stone-200 dark:border-neutral-800">
         <div className="max-w-3xl mx-auto px-4 py-2 flex items-center gap-3">
-          <Link href="/ko" className="font-semibold tracking-tight text-stone-700 dark:text-stone-200">
+          <Link href="/en" className="font-semibold tracking-tight text-stone-700 dark:text-stone-200">
             bible<span className="text-amber-700 dark:text-amber-400">365</span>
           </Link>
         </div>
@@ -109,7 +109,7 @@ export default function PrivacyPage() {
 
       <footer className="border-t border-stone-200 dark:border-neutral-800 py-6 text-xs text-stone-500 dark:text-stone-400">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          bible365 · <Link href="/support" className="underline">후원하기</Link>
+          bible365 · <Link href="/support" className="underline">Support / 후원하기</Link>
         </div>
       </footer>
     </div>

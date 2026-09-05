@@ -1,18 +1,32 @@
 "use client";
 
 import { useState } from "react";
+import type { Lang } from "@/lib/books";
+
+const COPY_LABEL: Record<Lang, { copy: string; copied: string; share: string }> = {
+  ko: { copy: "📋 텍스트 복사", copied: "✓ 복사됨", share: "공유" },
+  en: { copy: "📋 Copy text", copied: "✓ Copied", share: "Share" },
+  vi: { copy: "📋 Sao chép", copied: "✓ Đã sao chép", share: "Chia sẻ" },
+  th: { copy: "📋 คัดลอก", copied: "✓ คัดลอกแล้ว", share: "แชร์" },
+  zh: { copy: "📋 複製", copied: "✓ 已複製", share: "分享" },
+  tl: { copy: "📋 Kopyahin", copied: "✓ Nakopya", share: "Ibahagi" },
+  es: { copy: "📋 Copiar texto", copied: "✓ Copiado", share: "Compartir" },
+};
 
 export function VerseCopyButton({
   verseNum,
   verseText,
   bookName,
   chapter,
+  lang = "en",
 }: {
   verseNum: number;
   verseText: string;
   bookName: string;
   chapter: number;
+  lang?: Lang;
 }) {
+  const labels = COPY_LABEL[lang];
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -59,7 +73,7 @@ export function VerseCopyButton({
       <button
         type="button"
         onClick={toggle}
-        aria-label={`${bookName} ${chapter}:${verseNum} 공유`}
+        aria-label={`${bookName} ${chapter}:${verseNum} ${labels.share}`}
         className="text-xs text-stone-400 dark:text-stone-500 opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity hover:text-amber-700 dark:hover:text-amber-400"
       >
         {open ? "✕" : "🔗"}
@@ -75,7 +89,7 @@ export function VerseCopyButton({
             onClick={copyLink}
             className="flex items-center gap-2 px-3 py-2 hover:bg-stone-100 dark:hover:bg-neutral-800 text-stone-700 dark:text-stone-300 text-left"
           >
-            {copied ? "✓ 복사됨" : "📋 텍스트 복사"}
+            {copied ? labels.copied : labels.copy}
           </button>
           <button
             type="button"

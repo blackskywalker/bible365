@@ -106,7 +106,7 @@ export default async function ChapterPage({
                 {v.v}
               </a>
               {v.t}
-              <VerseCopyButton verseNum={v.v} verseText={v.t} bookName={name} chapter={chNum} />
+              <VerseCopyButton verseNum={v.v} verseText={v.t} bookName={name} chapter={chNum} lang={l} />
             </p>
           ))}
         </article>

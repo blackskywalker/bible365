@@ -2,16 +2,16 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "bible365 — 어디서든 펼치는 성경",
+    name: "bible365 — Read the Bible Anywhere",
     short_name: "bible365",
     description:
-      "24시간 365일 어디서든 가볍게 펼치는 다국어 온라인 성경. Read the Bible anywhere, anytime.",
-    start_url: "/ko",
+      "Free multilingual Bible — Korean, English, Vietnamese, Thai, Chinese, Filipino, Spanish. 24/7.",
+    start_url: "/",
     display: "standalone",
     background_color: "#fafaf9",
     theme_color: "#b45309",
     orientation: "portrait",
-    lang: "ko",
+    lang: "en",
     categories: ["education", "lifestyle", "religion"],
     icons: [
       {
@@ -29,9 +29,9 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
     shortcuts: [
       {
-        name: "오늘의 말씀",
-        url: "/ko",
-        description: "홈으로 이동",
+        name: "Verse of the Day",
+        url: "/",
+        description: "Go to home",
       },
     ],
   };

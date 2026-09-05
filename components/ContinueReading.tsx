@@ -5,6 +5,14 @@ import { useEffect, useState } from "react";
 import { BOOK_BY_CODE } from "@/lib/books";
 import type { Lang } from "@/lib/books";
 
+const CONTINUE_LABEL: Record<Lang, string> = {
+  ko: "이어읽기", en: "Continue Reading", vi: "Tiếp tục đọc",
+  th: "อ่านต่อ", zh: "继续阅读", tl: "Magpatuloy sa Pagbabasa", es: "Continuar leyendo",
+};
+const CHAPTER_LABEL: Record<Lang, string> = {
+  ko: "장", en: "ch.", vi: "ch.", th: "บทที่", zh: "章", tl: "kabanata", es: "cap.",
+};
+
 interface LastRead {
   lang: string;
   book: string;
@@ -38,10 +46,10 @@ export function ContinueReading({ lang }: { lang: Lang }) {
       <span className="text-amber-700 dark:text-amber-400 text-lg">📖</span>
       <div className="flex-1 min-w-0">
         <p className="text-xs text-amber-700 dark:text-amber-400 font-medium mb-0.5">
-          이어읽기
+          {CONTINUE_LABEL[lang]}
         </p>
         <p className="text-sm font-semibold text-stone-900 dark:text-stone-100 truncate">
-          {bookName} {last.chapter}장
+          {bookName} {last.chapter}{CHAPTER_LABEL[lang]}
         </p>
       </div>
       <span className="text-stone-400 dark:text-stone-500 text-sm">→</span>

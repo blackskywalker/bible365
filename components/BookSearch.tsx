@@ -84,7 +84,7 @@ export function BookSearch({ lang }: { lang: Lang }) {
                   {b.names[lang]}
                 </span>
                 <span className="text-xs text-stone-400 dark:text-stone-500">
-                  {b.testament === "OT" ? "구약" : "신약"} · {b.chapters}장
+                  {b.testament === "OT" ? "OT" : "NT"} · {b.chapters}ch
                 </span>
               </Link>
             </li>
@@ -94,7 +94,7 @@ export function BookSearch({ lang }: { lang: Lang }) {
 
       {focused && q && results.length === 0 && (
         <div className="absolute top-full mt-1 left-0 right-0 z-30 bg-white dark:bg-neutral-900 border border-stone-200 dark:border-neutral-700 rounded-lg shadow-lg px-4 py-3 text-sm text-stone-500 dark:text-stone-400">
-          검색 결과 없음
+          No results
         </div>
       )}
     </div>
