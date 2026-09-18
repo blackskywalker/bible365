@@ -13,7 +13,7 @@ const BACK_LABEL: Record<Lang, string> = {
 };
 
 export const dynamicParams = true;
-export const dynamic = "force-static";
+export const revalidate = 86400;
 
 // 핵심 챕터만 빌드 시 pre-render — 나머지는 on-demand
 const PRIORITY_BOOKS: Record<string, number> = {
