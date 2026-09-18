@@ -1,5 +1,3 @@
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 import { BOOK_BY_CODE, type Lang } from "./books";
 
 export type Verse = { v: number; t: string };
@@ -10,7 +8,9 @@ export type Chapter = {
   verses: Verse[];
 };
 
-const PROCESSED = join(process.cwd(), "data", "processed");
+const BASE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
 export async function loadChapter(
   lang: Lang,
@@ -21,11 +21,10 @@ export async function loadChapter(
   if (!meta) return null;
   if (chapter < 1 || chapter > meta.chapters) return null;
   try {
-    const raw = await readFile(
-      join(PROCESSED, lang, bookCode, `${chapter}.json`),
-      "utf8",
-    );
-    return JSON.parse(raw) as Chapter;
+    const url = `${BASE_URL}/bible/${lang}/${bookCode}/${chapter}.json`;
+    const res = await fetch(url, { next: { revalidate: false } });
+    if (!res.ok) return null;
+    return (await res.json()) as Chapter;
   } catch {
     return null;
   }
