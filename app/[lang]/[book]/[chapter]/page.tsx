@@ -12,9 +12,8 @@ const BACK_LABEL: Record<Lang, string> = {
   th: "← รายการ", zh: "← 列表", tl: "← Listahan", es: "← Lista",
 };
 
-// 나머지 챕터는 첫 방문 시 생성 후 캐시 (ISR)
 export const dynamicParams = true;
-export const revalidate = 86400; // 24시간 캐시
+export const dynamic = "force-static";
 
 // 핵심 챕터만 빌드 시 pre-render — 나머지는 on-demand
 const PRIORITY_BOOKS: Record<string, number> = {
