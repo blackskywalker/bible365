@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && find out -name '*.txt' -delete",
+    "build": "next build && find out -name '*.txt' -delete && rm -rf out/bible",
     "start": "next start",
     "lint": "eslint",
     "fetch:bibles": "bash data/scripts/fetch.sh",
