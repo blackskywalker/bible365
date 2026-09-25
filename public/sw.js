@@ -1,15 +1,15 @@
-const CACHE_NAME = "bible365-v2";
+const CACHE_NAME = "bible365-v3";
 
 // 캐시할 핵심 경로
 const CORE_URLS = [
-  "/ko",
-  "/en",
-  "/vi",
-  "/th",
-  "/zh",
-  "/tl",
-  "/es",
-  "/support",
+  "/ko/",
+  "/en/",
+  "/vi/",
+  "/th/",
+  "/zh/",
+  "/tl/",
+  "/es/",
+  "/support/",
 ];
 
 self.addEventListener("install", (event) => {
@@ -45,7 +45,7 @@ self.addEventListener("fetch", (event) => {
         return response;
       }).catch(() => {
         // 오프라인 시 캐시된 홈 반환
-        return caches.match("/ko");
+        return caches.match("/en/");
       });
     })
   );

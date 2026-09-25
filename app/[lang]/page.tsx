@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]">): Promis
       locale: l,
     },
     alternates: {
-      languages: Object.fromEntries(LANGUAGES.map((lng) => [lng, `/${lng}`])),
+      languages: Object.fromEntries(LANGUAGES.map((lng) => [lng, `/${lng}/`])),
     },
   };
 }

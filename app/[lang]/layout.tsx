@@ -5,7 +5,7 @@ export function generateStaticParams() {
   return LANGUAGES.map((lang) => ({ lang }));
 }
 
-export const dynamicParams = true;
+export const dynamicParams = false;
 
 export default async function LangLayout({
   children,

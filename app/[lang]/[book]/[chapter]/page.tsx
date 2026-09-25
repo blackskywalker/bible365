@@ -12,21 +12,14 @@ const BACK_LABEL: Record<Lang, string> = {
   th: "← รายการ", zh: "← 列表", tl: "← Listahan", es: "← Lista",
 };
 
-export const dynamicParams = true;
+export const dynamicParams = false;
 export const revalidate = false;
-
-// 핵심 챕터만 빌드 시 pre-render — 나머지는 on-demand
-const PRIORITY_BOOKS: Record<string, number> = {
-  jhn: 21, psa: 10, gen: 3, mat: 5, rom: 8,
-  pro: 3, isa: 1, rev: 1, luk: 3, act: 2,
-};
 
 export async function generateStaticParams() {
   const params: { lang: string; book: string; chapter: string }[] = [];
   for (const lang of LANGUAGES) {
     for (const book of BOOKS) {
-      const limit = PRIORITY_BOOKS[book.code] ?? 1;
-      for (let c = 1; c <= Math.min(limit, book.chapters); c++) {
+      for (let c = 1; c <= book.chapters; c++) {
         params.push({ lang, book: book.code, chapter: String(c) });
       }
     }
@@ -50,7 +43,7 @@ export async function generateMetadata({
     twitter: { card: "summary_large_image", title, description },
     alternates: {
       languages: Object.fromEntries(
-        LANGUAGES.map((l) => [l, `/${l}/${book}/${chapter}`])
+        LANGUAGES.map((l) => [l, `/${l}/${book}/${chapter}/`])
       ),
     },
   };

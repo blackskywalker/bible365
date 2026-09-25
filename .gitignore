@@ -42,3 +42,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 공용 플레이북 (심볼릭 링크 — 원본은 ~/.claude/playbook/)
+MARKETING_SPOON.md
+LEAD_NET.md
+
+# static export output
+/out

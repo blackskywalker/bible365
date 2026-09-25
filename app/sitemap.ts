@@ -1,22 +1,24 @@
 import type { MetadataRoute } from "next";
 import { BOOKS, LANGUAGES } from "@/lib/books";
 
+export const dynamic = "force-static";
+
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bible365.art";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   const statics: MetadataRoute.Sitemap = [
-    { url: `${BASE_URL}/ko`, lastModified: now, changeFrequency: "daily", priority: 1.0 },
-    { url: `${BASE_URL}/en`, lastModified: now, changeFrequency: "daily", priority: 1.0 },
-    { url: `${BASE_URL}/vi`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
-    { url: `${BASE_URL}/th`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
-    { url: `${BASE_URL}/zh`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
-    { url: `${BASE_URL}/tl`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
-    { url: `${BASE_URL}/es`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
-    { url: `${BASE_URL}/world`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/support`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE_URL}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE_URL}/ko/`, lastModified: now, changeFrequency: "daily", priority: 1.0 },
+    { url: `${BASE_URL}/en/`, lastModified: now, changeFrequency: "daily", priority: 1.0 },
+    { url: `${BASE_URL}/vi/`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
+    { url: `${BASE_URL}/th/`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
+    { url: `${BASE_URL}/zh/`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
+    { url: `${BASE_URL}/tl/`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
+    { url: `${BASE_URL}/es/`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
+    { url: `${BASE_URL}/world/`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/support/`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE_URL}/privacy/`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   // ko/en은 전체 핵심 챕터, 나머지 언어는 복음서+시편만
@@ -37,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (!limit) continue;
       for (let c = 1; c <= limit; c++) {
         chapters.push({
-          url: `${BASE_URL}/${lang}/${book.code}/${c}`,
+          url: `${BASE_URL}/${lang}/${book.code}/${c}/`,
           lastModified: now,
           changeFrequency: "yearly",
           priority: 0.7,
