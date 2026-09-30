@@ -16,15 +16,24 @@ export async function generateMetadata({ params }: PageProps<"/[lang]">): Promis
   if (!LANGUAGES.includes(l)) return {};
   const copy = HOME_COPY[l];
   const label = LANGUAGE_LABELS[l].english;
+  const fullTitle = `bible365 — ${copy.tagline}`;
   return {
-    title: `bible365 — ${copy.tagline}`,
+    title: { absolute: fullTitle },
     description: `${copy.subline} Free Bible in ${label} and 6 other languages.`,
     openGraph: {
-      title: `bible365 — ${copy.tagline}`,
+      title: fullTitle,
       description: copy.subline,
       locale: l,
+      images: [{ url: "/icon-512.png", width: 512, height: 512, alt: "bible365" }],
+    },
+    twitter: {
+      card: "summary",
+      title: fullTitle,
+      description: copy.subline,
+      images: ["/icon-512.png"],
     },
     alternates: {
+      canonical: `/${l}/`,
       languages: Object.fromEntries(LANGUAGES.map((lng) => [lng, `/${lng}/`])),
     },
   };

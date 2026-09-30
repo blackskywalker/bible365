@@ -34,14 +34,27 @@ export async function generateMetadata({
   const meta = BOOK_BY_CODE[book];
   if (!meta) return {};
   const name = meta.names[lang as Lang] ?? meta.names.en;
-  const title = `${name} ${chapter} · bible365`;
+  const title = `${name} ${chapter}`;
   const description = `${name} ${chapter} — bible365: Read the Bible anywhere, anytime.`;
+  const sharedTitle = `${title} · bible365`;
   return {
     title,
     description,
-    openGraph: { title, description, type: "article", locale: lang },
-    twitter: { card: "summary_large_image", title, description },
+    openGraph: {
+      title: sharedTitle,
+      description,
+      type: "article",
+      locale: lang,
+      images: [{ url: "/icon-512.png", width: 512, height: 512, alt: "bible365" }],
+    },
+    twitter: {
+      card: "summary",
+      title: sharedTitle,
+      description,
+      images: ["/icon-512.png"],
+    },
     alternates: {
+      canonical: `/${lang}/${book}/${chapter}/`,
       languages: Object.fromEntries(
         LANGUAGES.map((l) => [l, `/${l}/${book}/${chapter}/`])
       ),
